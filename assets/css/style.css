@@ -20,6 +20,10 @@ p{
 	color:white;
 }
 
+nav ul{
+	float:right;
+}
+
 .jumbotron{
 	background-color: #9F000F;
 	color: white;

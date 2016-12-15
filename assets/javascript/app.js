@@ -87,6 +87,7 @@ $("#Search").on("click", function(event) {
               dataType: 'json',
               success: function(data2) { 
 
+
                 recipeSteps = data2;
 
                 for(var j=0; j < data2[0].steps.length; j++){
@@ -135,6 +136,7 @@ $("#Search").on("click", function(event) {
  $("#speech").on("click", function() {
     for(var l=0;  l< recipeSteps[0].steps.length; l++){
       steps3 =  recipeSteps[0].steps[l].step;
+      console.log(steps3);
       responsiveVoice.speak(steps3);
     }
   });
