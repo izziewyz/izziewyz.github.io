@@ -49,7 +49,7 @@ $("#add").on('click', function()
        var randomnumber = Math.floor((Math.random() * 10) + 1);
        console.log(randomnumber)
        macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
-       $("#giphy").html(macgiphy);
+       // $("#giphy").html(macgiphy);
    })
 
 				// Next line of code to prevent page reload and allow user to hit the enter key instead of clicking
@@ -76,7 +76,7 @@ $("#add").on('click', function()
        var randomnumber = Math.floor((Math.random() * 10) + 1);
        console.log(randomnumber)
        macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
-       $("#giphy").html(macgiphy);
+       // $("#giphy").html(macgiphy);
   });
 
 
