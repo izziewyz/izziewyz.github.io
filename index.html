@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title></title>
+    <title>www.foodmacgyver.com</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Engagement" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -43,20 +43,22 @@
                                 <label for="searchTerm">
                                     <h5>Type Ingredient</h5></label>
                                 <input type="text" class="form-control" id="searchTerm" placeholder="Tomato">
+                                <button type="submit" class="btn btn-default" id="add">Add</button>
+                                <button type="submit" class="btn btn-default" id="clear">Clear Results</button>
                             </div>
                             <div class="form-group">
-                                <label for="numberRecords">
-                                    <h5>Nuber of Recipes</h5></label>
-                                <input type="text" class="form-control" id="recordsRetrieve" placeholder="5">
+                                
                             </div>
                             <!-- <div class="form-group">
                                 <label for="startYear">
                                     <h5>Maximum Preparation Time (minutes)</h5></label>
                                 <input type="text" class="form-control" id="startYear" placeholder="20">
                             </div> -->
-                            <button type="submit" class="btn btn-default" id="add">Add</button>
-                            <button type="submit" class="btn btn-default" id="clear">Clear Results</button>
+                            
+                            
+                            
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -65,6 +67,9 @@
                 <h5>Recipe</h5>
                 <br>
                 <div id ="izzielist"></div>
+                <button class="btn btn-default" id="speech">Speech</button>
+                <button class="btn btn-default" id="pause">Pause</button>
+                <button class="btn btn-default" id="resume">Resume</button>
 
                 
             </div>
@@ -86,6 +91,10 @@
                             <br> -->
                         </form>
                     </div>
+                    <label for="numberRecords">
+                                    <h5>Nuber of Recipes</h5></label>
+                                <input type="text" class="form-control" id="recordsRetrieve" placeholder="5">
+
                     <button type="submit" class="btn btn-default" id="Search">Search Recipe</button>
                     <button type="submit" class="btn btn-default" id="Clearbox">Clear Checked Box</button>
                     <label text="hello"></label>
@@ -111,9 +120,9 @@
         <br> <!--A-->
 
 
-
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-     <script type="text/javascript" src="assets/javascript/alicia.js"></script>
+     <!-- <script type="text/javascript" src="assets/javascript/alicia.js"></script> -->
     <script type="text/javascript" src="assets/javascript/james-app.js"></script>
     
 </body>

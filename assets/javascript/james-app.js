@@ -8,32 +8,79 @@ var searchString = "";
 
 
 	// This function adds the ingredient when the add button is clicked
-	$("#add").on('click', function()
+$("#add").on('click', function()
 	{
    		
-   		// var letters = /^[A-Za-z]+$/;  
+		// Getting value from user input ingredient field and storing in newIngredient
+		var newIngredient = $("#searchTerm").val().trim();
+   		var letters = /^[A-Za-z]+$/;  
 		
-		// if 
-			// Getting value from user input ingredient field and storing in newIngredient
-			var newIngredient = $("#searchTerm").val().trim();
-			
-			// Creating an input tag and assigning attributes
-			var a = $("<input>"); 
-			a.attr("type", "checkbox"); // 
+		if(newIngredient.match(letters))  
+     		{  
+	     		
+				// Getting value from user input ingredient field and storing in newIngredient
+				// var newIngredient = $("#searchTerm").val().trim();
+				
+				// Creating an input tag and assigning attributes
+				var a = $("<input>"); 
+				a.attr("type", "checkbox"); // 
 
-			// Creating label tag and assigning attributes
-		    var b = $("<label>");
-		    b.attr("class", "checkBoxText");
-			b.text(newIngredient);
+				// Creating label tag and assigning attributes
+			    var b = $("<label>");
+			    b.attr("class", "checkBoxText");
+				b.text(newIngredient);
 
-			// Prepending input tag inside label tag
-		    b.prepend(a);
+				// Prepending input tag inside label tag
+			    b.prepend(a);
 
-		    // Adding combined tags to html
-		    $("#wellSection").append(b); // Added the checkbox to the HTML
+			    // Adding combined tags to html
+			    $("#wellSection").append(b); // Added the checkbox to the HTML
 
-			// Empty input field 
-			$("#searchTerm").val("");
+				// Empty input field 
+				$("#searchTerm").val("");
+				var type = newIngredient
+       		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+
+  			$.ajax({url: queryURL, method: 'GET'})
+   			.done(function(response) {
+       console.log(response);
+       var macgiphy = $("<img>")
+       var randomnumber = Math.floor((Math.random() * 10) + 1);
+       console.log(randomnumber)
+       macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
+       $("#giphy").html(macgiphy);
+   })
+
+				// Next line of code to prevent page reload and allow user to hit the enter key instead of clicking
+				return false;
+			}
+		else
+			{	
+				// Empty input field 
+				$("#searchTerm").val("");
+
+				// Alert user that numbers are not allowed
+     			ohSnap('Please enter letters only!!!' , {color:'red'}) 
+     			return false; 
+			}
+
+			var type = newIngredient
+       		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+
+  			$.ajax({url: queryURL, method: 'GET'})
+   			.done(function(response) {
+       console.log(response);
+       var macgiphy = $("<img>")
+       var randomnumber = Math.floor((Math.random() * 10) + 1);
+       console.log(randomnumber)
+       macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
+       $("#giphy").html(macgiphy);
+  });
+
+
+
 
 			// Next line of code to prevent page reload and allow user to hit the enter key instead of clicking
 			return false;
@@ -50,26 +97,26 @@ var searchString = "";
 	});
 
 
-	$("#Search").on('click', function()
-	{ 
+	// $("#Search").on('click', function()
+	// { 
 
-		//-----------------------------------------------------------------------------
-	    // Items between these 2 dashed lines added by James
-	    // Re-initializes ingredientsArray before rebuilding the array based on what is left 
-	    // in html after some checkboxes have been removed
-	    ingredientsArray=[];
-	    console.log(ingredientsArray);
+	// 	// //-----------------------------------------------------------------------------
+	//  //    // Items between these 2 dashed lines added by James
+	//  //    // Re-initializes ingredientsArray before rebuilding the array based on what is left 
+	//  //    // in html after some checkboxes have been removed
+	//  //    ingredientsArray=[];
+	//  //    console.log(ingredientsArray);
 
-	    // Loops through each checkbox object, grabs the text and stores in ingredientsArray
-	    $(".checkBoxText").each(function()
-	    {
-	      ingredientsArray.push($(this).text());
-	    })
+	//  //    // Loops through each checkbox object, grabs the text and stores in ingredientsArray
+	//  //    $(".checkBoxText").each(function()
+	//  //    {
+	//  //      ingredientsArray.push($(this).text());
+	//  //    })
 
-	    ingredientsString = ingredientsArray.toString();
-	    searchString = ingredientsString.replace(/,/gi , "%2C");
-	    console.log(ingredientsArray);
-	    console.log(searchString)
-	    //-----------------------------------------------------------------------------
+	//  //    ingredientsString = ingredientsArray.toString();
+	//  //    searchString = ingredientsString.replace(/,/gi , "%2C");
+	//  //    console.log(ingredientsArray);
+	//  //    console.log(searchString)
+	//  //    //-----------------------------------------------------------------------------
 
-	});	
+	// });	

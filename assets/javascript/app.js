@@ -1,20 +1,39 @@
-
-
+var recipeSteps = '';
 
 $("#Search").on("click", function(event) {
           $("#izzie").empty();
           event.preventDefault();
-          console.log(searchString);
+          numberrecipe = $("#recordsRetrieve").val()
+
+          console.log(numberrecipe);
+          
+          //-----------------------------------------------------------------------------
+      // Items between these 2 dashed lines added by James
+      // Re-initializes ingredientsArray before rebuilding the array based on what is left 
+      // in html after some checkboxes have been removed
+      ingredientsArray=[];
+      console.log(ingredientsArray);
+
+      // Loops through each checkbox object, grabs the text and stores in ingredientsArray
+      $(".checkBoxText").each(function()
+      {
+        ingredientsArray.push($(this).text());
+      })
+
+      ingredientsString = ingredientsArray.toString();
+      searchString = ingredientsString.replace(/,/gi , "%2C");
+      console.log(ingredientsArray);
+      console.log(searchString)
+      //-----------------------------------------------------------------------------
           // var ingredient =  $("#searchTerm").val().trim();
           // console.log(ingredient);
 
           // event.preventDefault() can be used to prevent an event's default behavior.
           // Here, it prevents the submit button from trying to submit a form when clicked
- 
 
  
  $.ajax({
-    url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchString + "&limitLicense=false&number=5&ranking=2" , // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+    url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchString + "&limitLicense=false&number=" + numberrecipe + "&ranking=1" , // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
     type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
     data: {}, // Additional parameters here
     dataType: 'json',
@@ -41,6 +60,7 @@ $("#Search").on("click", function(event) {
 
        recipediv.prepend(recipetitle);
        recipediv.prepend(recipeimage);
+      
 
        $("#izzie").prepend(recipediv);
 
@@ -58,48 +78,45 @@ $("#Search").on("click", function(event) {
 
            var id = $(this).attr("data2")
 
+
+
           $.ajax({
-    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id + '/analyzedInstructions?stepBreakdown=true', // The URL to the API. You can get this in the API page of the API you intend to consume
-    type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
-    data: {}, // Additional parameters here
-    dataType: 'json',
-    success: function(data2) { 
+              url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id + '/analyzedInstructions?stepBreakdown=true', // The URL to the API. You can get this in the API page of the API you intend to consume
+              type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+              data: {}, // Additional parameters here
+              dataType: 'json',
+              success: function(data2) { 
 
+                recipeSteps = data2;
 
+                for(var j=0; j < data2[0].steps.length; j++){
+                 var steps2 =  data2[0].steps[j].step;
+                 var steps2p = $("<p>")
 
-
-      console.log(data2); 
-
-      for(var j=0; j < data2[0].steps.length; j++){
-       var steps2 =  data2[0].steps[j].step;
-       var steps2p = $("<p>")
-
-        steps2p.text(steps2);
-       console.log(steps2);
-       $("#izzielist").append(steps2p);
-     }
-
-
-    },
-    error: function(err) { alert(err); },
-    beforeSend: function(xhr) {
-    xhr.setRequestHeader("X-Mashape-Authorization", "zRcHmtL8t0mshjUaxi3lu62rtX3zp13tQn4jsnSVdh6tVZBd1p"); // Enter here your Mashape key
-    }
+                  steps2p.text(steps2);
+                 console.log(steps2);
+                 $("#izzielist").append(steps2p);
+              }
+        },
+        error: function(err) { alert(err); },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("X-Mashape-Authorization", "zRcHmtL8t0mshjUaxi3lu62rtX3zp13tQn4jsnSVdh6tVZBd1p"); // Enter here your Mashape key
+        }
 });
 
-       var type = searchString
-       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
+  //      var type = newIngredient
+  //      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
-  $.ajax({url: queryURL, method: 'GET'})
-   .done(function(response) {
-       console.log(response);
-       var macgiphy = $("<img>")
-       var randomnumber = Math.floor((Math.random() * 10) + 1);
-       console.log(randomnumber)
-       macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
-       $("#giphy").html(macgiphy);
-  });
+  // $.ajax({url: queryURL, method: 'GET'})
+  //  .done(function(response) {
+  //      console.log(response);
+  //      var macgiphy = $("<img>")
+  //      var randomnumber = Math.floor((Math.random() * 10) + 1);
+  //      console.log(randomnumber)
+  //      macgiphy.attr("src", response.data[randomnumber].images.fixed_height.url);
+  //      $("#giphy").html(macgiphy);
+  // });
 
 
 
@@ -113,10 +130,24 @@ $("#Search").on("click", function(event) {
     }
 });
 
-
-
-
 })
+
+ $("#speech").on("click", function() {
+    for(var l=0;  l< recipeSteps[0].steps.length; l++){
+      steps3 =  recipeSteps[0].steps[l].step;
+      responsiveVoice.speak(steps3);
+    }
+  });
+
+  $("#pause").on("click", function() {
+    responsiveVoice.pause();
+  });
+
+  $("#resume").on("click", function() {
+    responsiveVoice.resume();
+  });
+
+
   
 
 
