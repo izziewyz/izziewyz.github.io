@@ -1,0 +1,62 @@
+
+h1{
+/*font-family: 'Diplomata SC', cursive;*/
+font-family: 'Engagement', cursive;
+font-size: 40px;
+}
+
+h5{
+color: white;
+font-family: 'Engagement', cursive;
+font-size: 30px;
+}
+
+body{
+	background-image: url("../images/background.jpg");
+	background-size: 100%;
+}
+
+p{
+	color:white;
+}
+
+.jumbotron{
+	background-color: #9F000F;
+	color: white;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom: 10px;
+	height: 80px;
+
+}
+
+.navbar{
+	background-color: #9F000F;
+	color: white;
+	text-align: center;
+}
+
+
+.panel-body{
+	padding:10px;
+}
+
+.checkbuttons{
+	color:white;
+	margin: 5px;
+}
+
+.imagebutton{
+	width:200px;
+}
+
+.checkBoxText{
+    color:white;
+    margin: 5px;
+}
+
+.izzielist{
+	color:white;
+	size: 5px;
+}
+
