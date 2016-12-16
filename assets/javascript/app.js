@@ -1,9 +1,12 @@
+preventDefault();
+$(".step01").hide();
 
 
 
 var recipeSteps = '';
 
 $("#Search").on("click", function(event) {
+  $(".step01").show();
  
           $("#izzie").empty();
           event.preventDefault();
