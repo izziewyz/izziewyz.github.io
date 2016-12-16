@@ -8,15 +8,15 @@ $("#Search").on("click", function(event) {
           console.log(numberrecipe);
           
           //-----------------------------------------------------------------------------
-      // Items between these 2 dashed lines added by James
-      // Re-initializes ingredientsArray before rebuilding the array based on what is left 
-      // in html after some checkboxes have been removed
-      ingredientsArray=[];
-      console.log(ingredientsArray);
+          // Items between these 2 dashed lines added by James
+          // Re-initializes ingredientsArray before rebuilding the array based on what is left 
+          // in html after some checkboxes have been removed
+         ingredientsArray=[];
+         console.log(ingredientsArray);
 
       // Loops through each checkbox object, grabs the text and stores in ingredientsArray
-      $(".checkBoxText").each(function()
-      {
+         $(".checkBoxText").each(function()
+        {
         ingredientsArray.push($(this).text());
       })
 
@@ -33,7 +33,7 @@ $("#Search").on("click", function(event) {
 
  
  $.ajax({
-    url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchString + "&limitLicense=false&number=" + numberrecipe + "&ranking=1" , // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+    url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + searchString + "&limitLicense=false&number=" + numberrecipe + "&ranking=2" , // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
     type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
     data: {}, // Additional parameters here
     dataType: 'json',
@@ -86,6 +86,7 @@ $("#Search").on("click", function(event) {
               data: {}, // Additional parameters here
               dataType: 'json',
               success: function(data2) { 
+                console.log(data2);
 
 
                 recipeSteps = data2;
@@ -94,7 +95,7 @@ $("#Search").on("click", function(event) {
                  var steps2 =  data2[0].steps[j].step;
                  var steps2p = $("<p>")
 
-                  steps2p.text(steps2);
+                  steps2p.text(j+1 + " " + steps2);
                  console.log(steps2);
                  $("#izzielist").append(steps2p);
               }
@@ -103,7 +104,37 @@ $("#Search").on("click", function(event) {
         beforeSend: function(xhr) {
           xhr.setRequestHeader("X-Mashape-Authorization", "zRcHmtL8t0mshjUaxi3lu62rtX3zp13tQn4jsnSVdh6tVZBd1p"); // Enter here your Mashape key
         }
-});
+        });
+
+
+  
+        $.ajax({
+              url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' +id+'/information?includeNutrition=false', // The URL to the API. You can get this in the API page of the API you intend to consume
+              type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+              data: {}, // Additional parameters here
+              dataType: 'json',
+              success: function(data3) { 
+                console.log(data3);
+
+                var allingredients = data3.extendedIngredients 
+
+
+
+
+
+                
+              }
+        ,
+        error: function(err) { alert(err); },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("X-Mashape-Authorization", "zRcHmtL8t0mshjUaxi3lu62rtX3zp13tQn4jsnSVdh6tVZBd1p"); // Enter here your Mashape key
+        }
+        });
+      });
+
+
+
+
 
   //      var type = newIngredient
   //      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -121,17 +152,17 @@ $("#Search").on("click", function(event) {
 
 
 
-        });
+        },
 
 
-      },
+      
     error: function(err) { alert(err); },
     beforeSend: function(xhr) {
     xhr.setRequestHeader("X-Mashape-Authorization", "zRcHmtL8t0mshjUaxi3lu62rtX3zp13tQn4jsnSVdh6tVZBd1p"); // Enter here your Mashape key
     }
 });
+});
 
-})
 
  $("#speech").on("click", function() {
     for(var l=0;  l< recipeSteps[0].steps.length; l++){

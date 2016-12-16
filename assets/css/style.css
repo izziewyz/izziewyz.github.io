@@ -1,67 +1,407 @@
-
-h1{
-/*font-family: 'Diplomata SC', cursive;*/
-font-family: 'Engagement', cursive;
-font-size: 40px;
+h1 {
+    float: left;
+    font-size: 40px;
+    color: white;
+    width: 400px;
+    height: 45px;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-family: 'Bungee Inline', cursive;
 }
 
-h5{
-color: white;
-font-family: 'Engagement', cursive;
-font-size: 30px;
+h2 {
+    color: white;
+    font-family: 'Fondamento', cursive;
+
+    font-size: 24px;
 }
 
-body{
-	background-image: url("../images/background.jpg");
-	background-size: 100%;
+h3 {
+    color: black;
+    font-family: 'Fondamento', cursive;
+
+    font-size: 20px;
 }
 
-p{
-	color:white;
+h4 {
+    color: white;
+    font-family: 'Fondamento', cursive;
+
+    font-size: 16px;
 }
 
-nav ul{
-	float:right;
+header {
+    height: 55px;
+    background-color: #9F000F;
+    color: white;
+    width: 100%;
 }
 
-.jumbotron{
-	background-color: #9F000F;
-	color: white;
-	text-align: center;
-	padding-top:10px;
-	padding-bottom: 10px;
-	height: 80px;
+.aboutNav {
+    text-decoration: none;
+    float: left;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    padding-left: 390px;
+    padding-right: 25px;
+    padding-top: 15px;
+    font-family: 'Engagement', cursive;
+}
+
+.contactNav {
+    text-decoration: none;
+    float: left;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    padding-right: 25px;
+    padding-top: 15px;
+    font-family: 'Engagement', cursive;
+}
+
+.guideNav {
+    text-decoration: none;
+    float: left;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    padding-right: 25px;
+    padding-top: 15px;
+    font-family: 'Engagement', cursive;
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+}
+
+p {
+    color: white;
+}
+
+#recordsRetrieve {
+    margin-left: 10px
+}
+
+.btn-default{
+    margin-right: 10px;
+}
+
+
+#Search {
+    margin-left: 10px;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.form-control {
+    margin-top: 10px;
+   /* margin-left:10px;*/
+    margin-bottom: 10px;
+    background-color: #E0E0E0;
+    color: black;
 
 }
 
-.navbar{
-	background-color: #9F000F;
-	color: white;
-	text-align: center;
-}
-
-
-.panel-body{
-	padding:10px;
-}
-
-.checkbuttons{
-	color:white;
-	margin: 5px;
-}
-
-.imagebutton{
-	width:200px;
-	height: 200px;
-}
-
-.checkBoxText{
-    color:white;
+.checkbuttons {
+    color: white;
     margin: 5px;
 }
 
-.izzielist{
-	color:white;
-	size: 5px;
+.imagebutton {
+    width: 200px;
 }
 
+.checkBoxText {
+    color: white;
+    margin: 5px;
+}
+
+.izzielist {
+    color: white;
+    size: 5px;
+}
+
+
+/* Style for the contact.html page */
+
+.entry {
+    width: 35px;
+}
+
+#nameContact {
+    /*  float:left;*/
+    width: 650px;
+    height: 30px;
+    margin: 10px 15px 15px 0px;
+    padding-top: 5px;
+    font-family: Arial;
+    background-color: #E0E0E0;
+}
+
+#emailContact {
+    /*float:left;*/
+    width: 650px;
+    height: 30px;
+    margin: 10px 15px 15px 0px;
+    padding-top: 5px;
+    font-family: Arial;
+    background-color: #E0E0E0;
+}
+
+#mesageContact {
+    /*float:left;*/
+    width: 650px;
+    height: 230px;
+    margin: 10px 15px 30px 0px;
+    padding-top: 5px;
+    font-family: Arial;
+    background-color: #E0E0E0;
+}
+
+#submit {
+    position: absolute;
+    height: 30px;
+    bottom: 5px;
+    margin-top: 10px;
+    left: 25px;
+    background-color: #333333;
+    color: white;
+    font-family: 'Engagement', cursive;
+    font-size: 20px;
+}
+
+
+/* Style for the About US.html page*/
+
+img {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 20px;
+}
+
+#biotext {
+    color: white;
+    padding: 10px 5px 5px 5px;
+}
+
+#bio {
+    position: relative;
+    float: left;
+    width: 700px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+    padding: 5px 10px 5px 10px;
+    color: #333333;
+    font-family: Arial;
+}
+
+
+/* Rules for screen widths at 980px or lower */
+
+@media screen and (max-width: 980px) {}
+
+@media screen and (max-width: 768px) {
+    header {
+        position: static;
+        width: 640px;
+        height: 55px;
+        margin-left: 45px;
+        background-color: #9F000F;
+        color: white;
+    }
+    h1 {
+        float: left;
+        width: 640px;
+        height: 45px;
+        text-align: center;
+        font-size: 36px;
+        padding-left: 10px;
+        margin-left: 0px;
+        font-family: 'Engagement', cursive;
+    }
+    #mainContent {
+        position: relative;
+        float: left;
+        width: 600px;
+        margin: 10px 10px 10px 15px;
+        padding: 20px 20px 20px 20px;
+        box-sizing: border-box;
+    }
+    .form-group {
+        width: 470px;
+    }
+    #navBar {
+        font-family: 'Engagement', cursive;
+        float: left;
+        height: 40px;
+        text-align: center;
+    }
+    .aboutNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 120px;
+        padding-top: 15px;
+        padding-left: 60px;
+        font-family: 'Engagement', cursive;
+    }
+    .contactNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 120px;
+        padding-top: 15px;
+        font-family: 'Engagement', cursive;
+    }
+    .guideNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 10px;
+        padding-top: 15px;
+        font-family: 'Engagement', cursive;
+    }
+    #contactInfo {
+        position: relative;
+        float: left;
+        font-size: 20px;
+        width: 600px;
+        margin: 10px 10px 10px 45px;
+        padding: 20px 20px 20px 20px;
+        color: #333333;
+        box-sizing: border-box;
+    }
+    #nameContact {
+        /*  float:left;*/
+        width: 580px;
+        height: 25px;
+        margin: 5px 15px 15px 0px;
+        font-family: Arial;
+    }
+    #emailContact {
+        /*float:left;*/
+        width: 580px;
+        height: 25px;
+        margin: 0px 15px 15px 0px;
+        font-family: Arial;
+    }
+    #mesageContact {
+        /*float:left;*/
+        width: 580px;
+        height: 250px;
+        margin: 0px 15px 15px 0px;
+        font-family: Arial;
+    }
+    #biotext {
+        color: white;
+        padding: 10px 5px 5px 5px;
+        width: 520px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    header {
+        position: static;
+        width: 640px;
+        height: 55px;
+        background-color: #9F000F;
+        color: white;
+    }
+    h1 {
+        float: left;
+        width: 640px;
+        height: 45px;
+        text-align: center;
+        font-size: 36px;
+        padding-left: 10px;
+        margin-left: 0px;
+        font-family: 'Engagement', cursive;
+    }
+    #mainContent {
+        position: relative;
+        float: left;
+        width: 600px;
+        margin: 10px 10px 10px 15px;
+        padding: 20px 20px 20px 20px;
+        box-sizing: border-box;
+    }
+    .form-group {
+        width: 470px;
+    }
+    #navBar {
+        font-family: 'Engagement', cursive;
+        float: left;
+        height: 40px;
+        text-align: center;
+    }
+    .aboutNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 120px;
+        padding-top: 15px;
+        padding-left: 60px;
+        font-family: 'Engagement', cursive;
+    }
+    .contactNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 120px;
+        padding-top: 15px;
+        font-family: 'Engagement', cursive;
+    }
+    .guideNav {
+        text-decoration: none;
+        float: left;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        padding-right: 10px;
+        padding-top: 15px;
+        font-family: 'Engagement', cursive;
+    }
+    #contactInfo {
+        position: relative;
+        float: left;
+        font-size: 20px;
+        width: 600px;
+        margin: 10px 10px 10px 5px;
+        padding: 20px 20px 20px 20px;
+        color: #333333;
+        box-sizing: border-box;
+    }
+    #nameContact {
+        width: 550px;
+        height: 20px;
+        margin: 5px 15px 15px 2px;
+        font-family: Arial;
+    }
+    #emailContact {
+        width: 550px;
+        height: 20px;
+        margin: 5px 15px 15px 2px;
+        font-family: Arial;
+    }
+    #mesageContact {
+        width: 550px;
+        height: 250px;
+        margin: 5px 15px 15px 2px;
+        font-family: Arial;
+    }
+}
