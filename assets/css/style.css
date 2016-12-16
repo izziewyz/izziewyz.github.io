@@ -114,6 +114,10 @@ p {
 .imagebutton {
     width: 200px;
 }
+.allingredientsimages{
+    width:70px;
+    height:70px;
+}
 
 .checkBoxText {
     color: white;

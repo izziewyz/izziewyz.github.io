@@ -73,6 +73,7 @@ $("#Search").on("click", function(event) {
         $(".imagebutton").on("click", function(event) {
 
           $("#izzielist").empty();
+          $("#allingredients").empty();
           console.log($(this).attr("data2"));
 
 
@@ -116,7 +117,30 @@ $("#Search").on("click", function(event) {
               success: function(data3) { 
                 console.log(data3);
 
-                var allingredients = data3.extendedIngredients 
+                var allingredients = data3.extendedIngredients
+                
+                for (var k=0; k < allingredients.length; k++) {
+                  console.log(allingredients[k].name);
+
+                  var allindiv = $("<div>")
+                  allindiv.attr("class", "col-sm-4")
+
+                  var allingredientsp = $("<p>");
+                  var allingredientsimage = $("<img>");
+                  allingredientsimage.attr("src", allingredients[k].image);
+                  allingredientsimage.attr("class","allingredientsimages");
+
+
+                  allingredientsp.text(allingredients[k].name);
+                  //k+1 + " " + 
+
+
+                  allindiv.append(allingredientsp);
+                  allindiv.append(allingredientsimage);
+                  $("#allingredients").append(allindiv);
+
+
+                }
 
 
 
