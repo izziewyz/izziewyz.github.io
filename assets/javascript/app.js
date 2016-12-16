@@ -1,6 +1,10 @@
+
+
+
 var recipeSteps = '';
 
 $("#Search").on("click", function(event) {
+ 
           $("#izzie").empty();
           event.preventDefault();
           numberrecipe = $("#recordsRetrieve").val()
@@ -204,6 +208,10 @@ $("#Search").on("click", function(event) {
     responsiveVoice.resume();
   });
 
+$("#jam").on("click", function() {
+    var audio = new Audio("assets/MacGyver Theme Song-UKTNWI0eYJ4.mp3");
+     audio.play();
+  });
 
   
 

@@ -42,12 +42,12 @@
                         <form>
                             <div class="form-group">
                                 <label for="searchTerm">
-                                    <h2>Type an Ingredient</h2></label>
+                                    <h2>Enter an Ingredient</h2></label>
                                 <input type="text" class="form-control" id="searchTerm" placeholder="Tomato">
                                 <button type="submit" class="btn btn-default" id="add">
-                                    <h3>Add</h3></button>
-                                <button type="submit" class="btn btn-default" id="clear">
-                                    <h3>Clear Results</h3></button>
+                                    <h3>Add Ingredient to MacGyver's Tool Kit</h3></button>
+                                <!-- <button type="submit" class="btn btn-default" id="clear">
+                                    <h3>Clear Results</h3></button> -->
                             </div>
                             <div class="form-group">
                             </div>
@@ -65,7 +65,7 @@
 
                 <div class="panel panel-primary">
                 <br>
-                <h2>Recipe</h2>
+                <h2>Recipe Information</h2>
                 <br>
                 <div id="izzielist"></div>
                 <br>
@@ -82,15 +82,20 @@
                 <button class="btn btn-default" id="speech"><h3>Speech</h3></button>
                 <button class="btn btn-default" id="pause"><h3>Pause</h3></button>
                 <button class="btn btn-default" id="resume"><h3>Resume</h3></button>
-                <br>
+                
+                <!-- <br>
                 <br>
                 <h2>Try this~</h2>
-                <br>
-                <audio controls>
-                      <!-- <source src="horse.ogg" type="audio/ogg"> -->
-                      <source src="assets/MacGyver theme song-vGIo-tqQkoQ.mp3" type="audio/mpeg">
+                <br> -->
+                
+                <img src="assets/images/jam.jpg" id="jam" >
+
+                <!-- <button class="btn btn-default" id="jam"><h3>Jam</h3></button> -->
+                <!-- <! <audio controls>
+                      <! <source src="horse.ogg" type="audio/ogg"> -->
+                      <!-- <source src="assets/MacGyver theme song-vGIo-tqQkoQ.mp3" type="audio/mpeg">
                     
-                </audio>
+                </audio> --> 
                 </div>
                 </div>
             </div>
@@ -101,7 +106,7 @@
                 <br>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 style="margin-left:10px">Ingredients List</h2>
+                        <h2 style="margin-left:10px">FoodMacGyver's Tool Kit</h2>
                     </div>
                     <div class="panel-body" id="wellSection">
                         <form action="" id="checkboxDiv">
@@ -119,9 +124,9 @@
                     <br>
                     <div class="panel-heading" >
                     <label for="numberRecords">
-                        <h2 style="margin-left:10px">Number of Recipes</h2></label>
+                        <h2 style="margin-left:10px">Number of Recipes to Display</h2></label>
                     <input type="text" class="form-control" id="recordsRetrieve" placeholder="5">
-                    <button type="submit" class="btn btn-default" id="Search"><h3>Search Recipe</h3></button>
+                    <button type="submit" class="btn btn-default" id="Search"><h3>Go To Work FoodMacGyver!</h3></button>
                     <label text="hello"></label>
                     </div>
                 </div>
@@ -142,7 +147,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <br>
-                <h2 style="margin-left:10px">Click on a Recipe</h2>
+                <h2 style="margin-left:10px">Click on a Recipe to Display Instructions</h2>
                 <div id="izzie"></div>
             </div>
         </div>
