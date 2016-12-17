@@ -1,6 +1,8 @@
 var recipeSteps = '';
+$(".step01").hide();
 
 $("#Search").on("click", function(event) {
+         $(".step03").show();
   
  
           $("#izzie").empty();
@@ -73,6 +75,7 @@ $("#Search").on("click", function(event) {
        	//document.getElementById("output").innerHTML = data.source; 
         }
         $(".imagebutton").on("click", function(event) {
+          $(".step04").show();
 
           $("#izzielist").empty();
           $("#allingredients").empty();
@@ -206,9 +209,24 @@ $("#Search").on("click", function(event) {
     responsiveVoice.resume();
   });
 
+
+
 $("#jam").on("click", function() {
+    var jamimage = $("#jam").attr("data-state")
+    
     var audio = new Audio("assets/MacGyver Theme Song-UKTNWI0eYJ4.mp3");
+    if(jamimage === "still"){
+      console.log(this);
+      audio.pause();
+      $(this).attr("data-state","animate")
+     
+
+    }
+      else {
+        console.log(this);
+        $(this).attr("data-state", "still");
      audio.play();
+    }
   });
 
   

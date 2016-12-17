@@ -10,6 +10,8 @@ var searchString = "";
 	// This function adds the ingredient when the add button is clicked
 $("#add").on('click', function()
 	{
+		$(".step02").show();
+		$(".step04").hide();
    		
 		// Getting value from user input ingredient field and storing in newIngredient
 		var newIngredient = $("#searchTerm").val().trim();
